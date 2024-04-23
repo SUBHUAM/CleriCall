@@ -3,6 +3,7 @@ import { Loader2 } from "@/components/Loader";
 import MeetingTypeList from "@/components/MeetingTypeList";
 import { useGetCalls } from "@/hooks/useGetCall";
 import React from "react";
+import { Analytics } from "@vercel/analytics/react"
 
 function Home() {
   const now = new Date();
@@ -37,6 +38,7 @@ function Home() {
         </div>
       </div>
       <MeetingTypeList />
+      <Analytics/>
     </section>
   );
 }
