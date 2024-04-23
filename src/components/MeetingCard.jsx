@@ -1,0 +1,64 @@
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import React from "react";
+import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
+import { avatarImages } from "@/constants";
+
+export const MeetingCard = (props) => {
+  const {
+    icon,
+    title,
+    date,
+    isPreviousMeeting,
+    buttonIcon1,
+    handleClick,
+    link,
+    buttonText,
+  } = props;
+
+  const { toast } = useToast();
+
+  return (
+    <section className="flex  w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
+      <article className="flex flex-col gap-5">
+        <Image src={icon} alt="upcoming" width={28} height={28} />
+        <div className="flex justify-between">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-2xl font-bold">{title}</h1>
+            <p className="text-base font-normal">{date}</p>
+          </div>
+        </div>
+      </article>
+      <article className={cn("flex justify-center relative pt-4", {})}>
+        {!isPreviousMeeting && (
+          <div className="flex gap-2">
+            <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
+              {buttonIcon1 && (
+                <Image src={buttonIcon1} alt="feature" width={20} height={20} />
+              )}
+              &nbsp; {buttonText}
+            </Button>
+            <Button
+              onClick={() => {
+                navigator.clipboard.writeText(link);
+                toast({
+                  title: "Link Copied",
+                });
+              }}
+              className="bg-dark-4 px-6"
+            >
+              <Image
+                src="/icons/copy.svg"
+                alt="feature"
+                width={20}
+                height={20}
+              />
+              &nbsp; Copy Link
+            </Button>
+          </div>
+        )}
+      </article>
+    </section>
+  );
+};
