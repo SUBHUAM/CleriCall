@@ -26,7 +26,7 @@ function Home() {
             <Loader2 />
           ) : (
             <h2 className="glassmorphism max-2-[270px] rounded py-2 text-center text-base font-normal">
-              {upcomingCalls && upcomingCalls[0].state
+              {upcomingCalls && upcomingCalls[0]  && upcomingCalls[0]?.state
                 ? `Upcoming Meeting at : ${upcomingCalls[0].state?.startsAt.toLocaleString()}`
                 : `No upcoming Meeting`}
             </h2>
