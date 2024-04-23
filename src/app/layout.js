@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             colorPrimary: "#0E78F9",
             colorBackground: "#590696",
             colorInputBackground: "#fff",
-            colorInputText: "#fff",
+            colorInputText: "#161925",
           },
         }}
       >

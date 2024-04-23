@@ -127,7 +127,7 @@ const CallList = (props) => {
           );
         })
       ) : (
-        <h1>{noCallsMessage}</h1>
+        <h1 className="text-purple-2">{noCallsMessage}</h1>
       )}
     </div>
   );
